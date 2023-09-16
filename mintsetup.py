@@ -2,7 +2,7 @@
 
 import subprocess
 
-PROGRAMS = ["git", "htop", "wine", "htop", "black", "psensor", "spotify-client"]
+PROGRAMS = ["git", "wine", "htop", "black", "psensor", "spotify-client"]
 
 FLATPAKS = [
     "org.gnome.gitlab.somas.Apostrophe",
