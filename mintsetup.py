@@ -15,6 +15,7 @@ FLATPAKS = [
 
 def update():
     """Update and upgrade."""
+    
     print(">>> Running update, upgrade, and autoremove...\n")
     subprocess.run(["sudo", "apt", "update", "-y"])
     subprocess.run(["sudo", "apt", "upgrade", "-y"])
@@ -23,6 +24,7 @@ def update():
 
 def apt_install(program_list: list) -> None:
     """Install programs from list using apt."""
+    
     print(">>> Installing programs using apt...\n")
     for program in program_list:
         print(f">>> Installing {program}...\n")
@@ -38,6 +40,7 @@ def flatpak_install(flatpak_list: list) -> None:
         print(f"Installing {flatpak}...\n")
         subprocess.run(["flatpak", "install", flatpak])
         print("\n")
+
 
 def main():
     update()
