@@ -5,7 +5,7 @@ import os
 
 WORKING_DIRECTORY = os.getcwd()
 
-PROGRAMS = ["git", "wine", "htop", "black", "psensor", "spotify-client"]
+PROGRAMS = ["git", "wine", "htop", "black", "psensor", "spotify-client", "steam"]
 
 FLATPAKS = [
     "org.gnome.gitlab.somas.Apostrophe",
