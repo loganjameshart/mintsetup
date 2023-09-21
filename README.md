@@ -8,15 +8,15 @@ Additionally, it installs the Dracula theme for the GNOME Terminal.
 
 Since this program installs `git`, you can grab the script with `wget`:
 
-    ```bash
-    wget https://raw.githubusercontent.com/loganjameshart/mintsetup/main/mintsetup.py
-    ```
+```bash
+wget https://raw.githubusercontent.com/loganjameshart/mintsetup/main/mintsetup.py
+```
 
 To run this script:
 
-   ```bash
-   sudo python3 mintsetup.py
-   ```
+```bash
+sudo python3 mintsetup.py
+```
 
 ## What the Script Does
 
