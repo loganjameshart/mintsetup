@@ -28,23 +28,23 @@ The script first updates the package lists and upgrades the installed packages o
 
 It then proceeds to install the following programs using `apt`. These are just my "have to have" ones:
 
-    - git
-    - wine
-    - htop
-    - black
-    - psensor
-    - spotify-client
-    - steam
+- git
+- wine
+- htop
+- black
+- psensor
+- spotify-client
+- steam
 
 3. **Flatpak Installation**:
 
 It installs the following Flatpak applications:
 
-    - org.gnome.gitlab.somas.Apostrophe **(Apostrophe Markdown Editor)**
-    - com.bitwarden.desktop **(Bitwarden Password Manager)**
-    - com.github.tchx84.Flatseal **(Flatseal Permissions Manager)**
-    - com.usebottles.bottles **(Bottles, a WINE Frontend and Manager)**
-    - com.discordapp.Discord **(Discord)**
+- org.gnome.gitlab.somas.Apostrophe **(Apostrophe Markdown Editor)**
+- com.bitwarden.desktop **(Bitwarden Password Manager)**
+- com.github.tchx84.Flatseal **(Flatseal Permissions Manager)**
+- com.usebottles.bottles **(Bottles, a WINE Frontend and Manager)**
+- com.discordapp.Discord **(Discord)**
 
 4. **Dracula Theme Installation**:
 
