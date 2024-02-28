@@ -5,7 +5,7 @@ import os
 
 WORKING_DIRECTORY = os.getcwd()
 
-PROGRAMS = ["git", "wine", "htop", "black", "psensor", "spotify-client", "steam"]
+PROGRAMS = ["git", "htop", "black", "psensor", "vlc", "spotify-client", "steam"]
 
 FLATPAKS = [
     "org.gnome.gitlab.somas.Apostrophe",
@@ -13,6 +13,8 @@ FLATPAKS = [
     "com.github.tchx84.Flatseal",
     "com.usebottles.bottles",
     "com.discordapp.Discord",
+    "com.github.Rosalie241.RMG",
+    "net.rpcs3.RPCS3",
 ]
 
 
