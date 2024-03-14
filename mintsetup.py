@@ -33,8 +33,11 @@ def apt_install(program_list: list) -> None:
     print(">>> Installing programs using apt...\n")
     for program in program_list:
         print(f">>> Installing {program}...\n")
-        subprocess.run(["sudo", "apt", "install", "-y", program])
-        print("\n")
+        try:
+            subprocess.run(["sudo", "apt", "install", "-y", program])
+            print("\n")
+        except:
+            print(f">>> Could not install {program}...\n")
 
 
 def flatpak_install(flatpak_list: list) -> None:
@@ -42,9 +45,12 @@ def flatpak_install(flatpak_list: list) -> None:
 
     print(">>> Installing Flatpaks...\n")
     for flatpak in flatpak_list:
-        print(f"Installing {flatpak}...\n")
-        subprocess.run(["flatpak", "install", flatpak])
-        print("\n")
+        try:
+            print(f">>> Installing {flatpak}...\n")
+            subprocess.run(["flatpak", "install", flatpak])
+            print("\n")
+        except
+            print(f">>> Could not install {flatpak}...\n")
 
 
 def get_dracula() -> None:
