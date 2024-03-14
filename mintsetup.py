@@ -49,7 +49,7 @@ def flatpak_install(flatpak_list: list) -> None:
             print(f">>> Installing {flatpak}...\n")
             subprocess.run(["flatpak", "install", flatpak])
             print("\n")
-        except
+        except:
             print(f">>> Could not install {flatpak}...\n")
 
 
