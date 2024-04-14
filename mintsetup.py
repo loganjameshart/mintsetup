@@ -34,10 +34,13 @@ def apt_install(program_list: list) -> None:
     for program in program_list:
         print(f">>> Installing {program}...\n")
         try:
-            subprocess.run(["sudo", "apt", "install", "-y", program])
-            print("\n")
-        except:
-            print(f">>> Could not install {program}...\n")
+            result = subprocess.run(["sudo", "apt", "install", "-y", program], stderr=subprocess.PIPE)
+            if result.returncode != 0:
+                print(f">>> Error installing {program}: {result.stderr.decode()}\n")
+            else:
+                print(f">>> {program} successfully installed!\n")
+        except Exception as e:
+            print(f">>> An error occurred while installing {program}: {e}\n")
 
 
 def flatpak_install(flatpak_list: list) -> None:
@@ -47,21 +50,30 @@ def flatpak_install(flatpak_list: list) -> None:
     for flatpak in flatpak_list:
         try:
             print(f">>> Installing {flatpak}...\n")
-            subprocess.run(["flatpak", "install", flatpak])
-            print("\n")
-        except:
-            print(f">>> Could not install {flatpak}...\n")
+            result = subprocess.run(["flatpak", "install", flatpak], stderr=subprocess.PIPE)
+            if result.returncode != 0:
+                print(f">>> Error installing {flatpak}: {result.stderr.decode()}\n")
+            else:
+                print(f">>> {flatpak} successfully installed!\n")
+        except Exception as e:
+            print(f">>> An error occurred while installing {flatpak}: {e}\n")
 
 
 def get_dracula() -> None:
     """Get and install the Dracula theme for gnome-terminal, then cleanup."""
 
     print(">>> Installing Dracula theme for gnome-terminal...\n")
-    subprocess.run(["git", "clone", r"https://github.com/dracula/gnome-terminal"])
-    os.chdir("gnome-terminal")
-    subprocess.run(r"./install.sh")
-    os.chdir(WORKING_DIRECTORY)
-    subprocess.run(["rm", "-rf", "gnome-terminal"])
+    try:
+        subprocess.run(["git", "clone", r"https://github.com/dracula/gnome-terminal"], check=True)
+        os.chdir("gnome-terminal")
+        subprocess.run(r"./install.sh", check=True)
+        os.chdir(WORKING_DIRECTORY)
+        subprocess.run(["rm", "-rf", "gnome-terminal"], check=True)
+        print(">>> Dracula theme successfully installed and cleaned up!\n")
+    except subprocess.CalledProcessError as e:
+        print(f">>> Error: {e}\n")
+    except Exception as e:
+        print(f">>> An error occurred: {e}\n")
 
 
 def main():
