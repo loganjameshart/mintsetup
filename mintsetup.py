@@ -50,7 +50,7 @@ def flatpak_install(flatpak_list: list) -> None:
     for flatpak in flatpak_list:
         try:
             print(f">>> Installing {flatpak}...\n")
-            result = subprocess.run(["flatpak", "install", flatpak], stderr=subprocess.PIPE)
+            result = subprocess.run(["flatpak", "install", flatpak, "-y"], stderr=subprocess.PIPE)
             if result.returncode != 0:
                 print(f">>> Error installing {flatpak}: {result.stderr.decode()}\n")
             else:
