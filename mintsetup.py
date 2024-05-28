@@ -79,7 +79,7 @@ def get_musescore() -> None:
     mscore_link = "https://cdn.jsdelivr.net/musescore/v4.3.0/MuseScore-Studio-4.3.0.241231431-x86_64.AppImage"
     appimage_name = mscore_link.split("/")[-1]
     subprocess.run(["wget", "https://cdn.jsdelivr.net/musescore/v4.3.0/MuseScore-Studio-4.3.0.241231431-x86_64.AppImage"])
-    subprocess.run(["chmod u+x", f"{appimage_name}"])
+    subprocess.run(["chmod", "u+x", f"{appimage_name}"])
     subprocess.run([f"./{appimage_name}", "install"])
 
 
