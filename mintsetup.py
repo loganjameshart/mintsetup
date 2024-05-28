@@ -3,12 +3,12 @@
 import subprocess
 import os
 
+NAME = os.getlogin()
 WORKING_DIRECTORY = os.getcwd()
 
-PROGRAMS = ["git", "htop", "black", "psensor", "vlc", "spotify-client", "steam"]
+PROGRAMS = ["git", "htop", "black", "psensor", "vlc", "steam"]
 
 FLATPAKS = [
-    "org.gnome.gitlab.somas.Apostrophe",
     "com.bitwarden.desktop",
     "com.github.tchx84.Flatseal",
     "com.usebottles.bottles",
@@ -75,12 +75,20 @@ def get_dracula() -> None:
     except Exception as e:
         print(f">>> An error occurred: {e}\n")
 
+def get_musescore() -> None:
+    mscore_link = "https://cdn.jsdelivr.net/musescore/v4.3.0/MuseScore-Studio-4.3.0.241231431-x86_64.AppImage"
+    appimage_name = mscore_link.split("/")[-1]
+    subprocess.run(["wget", "https://cdn.jsdelivr.net/musescore/v4.3.0/MuseScore-Studio-4.3.0.241231431-x86_64.AppImage"])
+    subprocess.run(["chmod u+x", f"{appimage_name}"])
+    subprocess.run([f"./{appimage_name}", "install"])
+
 
 def main():
     update()
     apt_install(PROGRAMS)
     flatpak_install(FLATPAKS)
     get_dracula()
+    get_musescore()
 
 
 if __name__ == "__main__":
